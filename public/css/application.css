@@ -1,0 +1,28 @@
+nav {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 50px;
+  padding: 20px 13px;
+}
+
+.form-inline {
+  display: inline;
+}
+
+.button-link {
+     background: none !important;
+     color: red;
+     border: none;
+     padding: 0 !important;
+     font: inherit;
+     cursor: pointer;
+}
+
+  .button-link:hover{
+    border-bottom: 1px red solid;
+  }
+
+.clear-fix {
+  content: "";
+  display: table;
+  clear: both;
+}

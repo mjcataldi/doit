@@ -1,0 +1,32 @@
+
+<div class="col-sm-6">
+<h1>Users' Index Page</h1>
+
+<table class="table table-condensed table-striped table-hover">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Details</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td>
+      <a href="mailto:<%= user.email %>" target="_blank">
+        <%= user.email %>
+      </a>
+    </td>
+    <td>
+      <a href="/users/<%= user.id %>" target="_blank">Show</a> |
+      <a href="/users/<%= user.id %>/edit" target="_blank">Edit</a> |
+
+      <form action="/users/<%= user.id %>/delete" class="form-inline" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Delete" class="button-link">
+      </form>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+</div>
