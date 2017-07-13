@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+  <title>DoIt - The App for Yap</title>
+  <meta name="author" content="Matthew C. Cataldi" />
+  <meta name="keywords" content="Awesome, ciao, doit, knarlee, budaahhhhh" />
+  <meta name="description" content="This is a great website designed to help you get stuff done.  Holdin you accountable!" />
+
+
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
 </head>
+
 <body>
-  <%= yield %>
+  <main class="container">
+    <%= erb :"_navbar", layout: false %>
+    <%= erb :"_errors" %>
+    <%= yield %>
+    <%= erb :"_footer", layout: false %>
+  </main>
 </body>
 </html>

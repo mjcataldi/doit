@@ -1,0 +1,12 @@
+<nav>
+  <a href='/'>DoIt App</a>
+  <div class="pull-right">
+    <% if logged_in? %>
+      <a href='/sessions/delete'>Log out</a> |
+      <a href='/users/<%= @current_user.id %>'>Profile</a>
+    <% else %>
+      <a href='/sessions/new'>Log in</a> |
+      <a href='/users/new'>Register</a>
+    <% end %>
+  </div>
+</nav>
