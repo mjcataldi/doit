@@ -6,12 +6,18 @@ end
 post "/sessions" do
   @user = User.find_by(email: params[:email])
 
-  if @user && @user.password == params[:password]
-    session[:user_id] = @user.id
-    redirect "/users/#{@user.id}"
+  if @user
+    if @user.password == params[:password]
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.id}"
+    else
+      @errors = @user.errors.full_messages
+      erb :"login"
+    end
   else
-    @errors = ["Crap, something went wrong.  Try again."]
-    erb :"login"
+    @errors = ["Oops!  You need to register, let's take care of that now."]
+    @user = params[:user]
+    erb :"register", locals: {user: @user}
   end
 
 end
